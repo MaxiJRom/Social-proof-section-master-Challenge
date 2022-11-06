@@ -216,6 +216,14 @@ body {
         grid-column: 14 / -2;
     }
 
+    .caja__dos-puntuacion{
+        align-self: flex-end;
+    }
+
+    .caja__dos-puntuacion:first-child{
+        align-self: flex-end;
+    }
+
     .caja__tres {
         grid-column: 2/ -2;
     }
@@ -263,6 +271,7 @@ body{
 
     .caja__dos-puntuacion {
         flex-direction: column;
+        align-self: center;
     }
 
     .caja__tres {
