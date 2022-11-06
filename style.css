@@ -1,82 +1,195 @@
 /* =========== General Styles================ */
-*{
+* {
     padding: 0;
     margin: 0;
-    border:1px solid grey;
 }
 
 
 /* =========== Colors ======================= */
 
+:root {
+    font-size: 15px;
+    --clr-primary-dark-mgta: hsl(300, 43%, 22%);
+    --clr-primary-soft-pink: hsl(333, 80%, 67%);
+    --clr-neutral-dark-mgta: hsl(303, 10%, 53%);
+    --clr-neutral-light-mgta: hsl(300, 24%, 96%);
+    --clr-white: hsl(0, 0%, 100%);
+}
+
 
 /* =========== Typography =================== */
 
+.regular {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 400;
+}
+
+.semi-bold {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.bold {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+}
+
+.primary-magenta {
+    color: var(--clr-primary-dark-mgta);
+}
+
+.neutral-magenta {
+    color: var(--clr-neutral-dark-mgta)
+}
+
+.soft-pink {
+    font-family: 'League Spartan', sans-serif;
+    color: var(--clr-primary-soft-pink);
+}
+
+.white {
+    font-family: 'League Spartan', sans-serif;
+    color: var(--clr-white);
+}
 
 /* =========== Layout ================ */
+body {
+    background-image: url(./images/bg-pattern-bottom-desktop.svg), url(./images/bg-pattern-top-desktop.svg);
+    background-size: 75%, 41%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom right, top left;
+}
 
-.container{
+.container {
+    position: relative;
     display: grid;
-    grid-template-rows: repeat(10,10vh);
-    grid-template-columns: repeat(13, minmax(50px, 100px));
+    grid-template-rows: repeat(20, 5vh);
+    grid-template-columns: repeat(26, minmax(25px, 50px));
 }
 
-.caja__uno{
-    grid-row: 2/ span 3;
-    grid-column: 2 / span 5;
-}
-
-.caja__dos{
-    grid-row: 2 / span 3;
-    grid-column: 8 / -2;
+.caja__uno {
+    grid-row: 3/ span 7;
+    grid-column: 4 / span 8;
 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.caja__dos {
+    grid-row: 4 / span 6;
+    grid-column: 15 / -3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 
-.caja__dos div:first-child{
-    align-self: flex-start;
-}
 
-
-.caja__dos div:last-child{
-    align-self: flex-end;
-}
-
-.caja__tres{
-    grid-row: 6 / -2 ;
-    grid-column: 2 / -2;
+.caja__tres {
+    grid-row: 11 / -3;
+    grid-column: 4 / -3;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
-.caja__tres div:nth-child(2){
-    margin: 0 20px;
+.caja__tres__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1em;
 }
 
-.caja__tres div:first-child{
+.caja__tres__card__top {
+    display: flex;
+}
+
+
+
+.caja__dos-puntuacion:first-child {
     align-self: flex-start;
 }
 
-.caja__tres div:last-child{
+
+.caja__dos-puntuacion:last-child {
     align-self: flex-end;
 }
 
-.card{
-    height: 90%;
+.caja__dos-puntuacion {
+    display: flex;
+    align-items: center;
 }
+
+.puntuacion__stars {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    padding: 0 min(1.5em, 1em);
+}
+
+.caja__tres__card:first-child {
+    align-self: flex-start;
+}
+
+
+.caja__tres__card:nth-child(2) {
+    margin: 0 30px;
+}
+
+.caja__tres__card:last-child {
+    align-self: flex-end;
+}
+
 /* =========== Components Styles============= */
 
-img{
-    width: 20px;
+.caja__uno h1 {
+    font-size: 3.5rem;
+    line-height: 3rem;
+}
+
+.caja__uno p {
+    font-size: 1.1rem;
+    line-height: 1.3em;
 }
 
 
+.caja__dos-puntuacion {
+    background-color: var(--clr-neutral-light-mgta);
+    width: 80%;
+    margin: 0.5rem 0;
+    padding: 0.8em;
+    border-radius: 0.5em;
+}
+
+
+.caja__tres__card {
+    background-color: var(--clr-primary-dark-mgta);
+    border-radius: 0.5em;
+    padding: 1.5em 2em;
+}
+
+
+.caja__tres__card__top {
+    margin-top: 1em;
+}
+
+.caja__tres__card__image {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.caja__tres__card__name {
+    margin-left: 1em;
+}
+
+.caja__tres__card__quote {
+    line-height: 1.4rem;
+    margin-top: 1.5em;
+}
 
 
 
@@ -84,12 +197,87 @@ img{
     font-size: 11px;
     text-align: center;
     position: absolute;
-    bottom: 0;
     left: 0;
     right: 0;
+    bottom: 0;
 }
 
 .attribution a {
     color: hsl(228, 45%, 44%);
 }
 
+@media screen and (max-width:1137px) {
+
+    .caja__uno {
+        grid-column: 2 /span 11;
+    }
+
+    .caja__dos {
+        grid-column: 14 / -2;
+    }
+
+    .caja__tres {
+        grid-column: 2/ -2;
+    }
+}
+
+@media screen and (max-width:890px) {
+
+body{
+    background-size: 100%, 100%;
+}
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding: 40px 20px;
+
+    }
+
+    .caja__uno {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .caja__uno h1 {
+        font-size: 3rem;
+        line-height: 2.5rem;
+    }
+
+    .caja__uno p {
+        margin-top: 30px;
+    }
+
+    .caja__dos {
+        align-self: stretch;
+    }
+
+    .caja__dos-puntuacion:first-child {
+        align-self: center;
+    }
+
+    .caja__dos-puntuacion:last-child {
+        align-self: center;
+    }
+
+    .caja__dos-puntuacion {
+        flex-direction: column;
+    }
+
+    .caja__tres {
+        margin: 2rem 0;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .caja__tres__card:nth-child(2) {
+        margin: 0;
+    }
+
+    .caja__tres__card {
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+}
